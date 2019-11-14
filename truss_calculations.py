@@ -101,7 +101,7 @@ T = np.matmul(np.linalg.inv(A), L)
 
 ############## OUTPUT OF RESULTS ###############
 
-print(f"EK301, Section A3, Group GoonSquad: Garret G, John M, Mark T {datetime.datetime.now().date()}")
+print(f"EK301, Section A3, Group GoonSquad: Garrett G, John M, Mark T {datetime.datetime.now().date()}")
 
 print(f"\nLoad: {load} N")
 
