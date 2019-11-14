@@ -2,7 +2,7 @@ from mat4py import loadmat
 import numpy as np
 import datetime
 
-filename = "input.mat"
+filename = "example_input.mat"
 
 
 def print_array(arr):
@@ -46,8 +46,8 @@ for row in Sy:
 	assert(len(row) == 3)  # Should be length of 3 for each row
 for row in L:
 	assert(len(row) == 1)  # Should be length of 1 for each row
-assert(len(X) == len(Y))  # Should be same number of x and y coords
 num_joints = len(C)
+assert(len(X) == len(Y) == num_joints)  # Should be same number of x and y coords as joints
 #####################################################
 
 # load is equal to the first load in L that is non-zero
