@@ -121,7 +121,7 @@ if __name__ == '__main__':
 
 	print("\nMember Forces in Newtons:")
 	for ii in range(num_members):
-		print(f"m{ii+1}: {abs(round(T[ii][0], 3))} {'C' if T[ii] < 0 else 'T'}")
+		print(f"m{ii+1}: {abs(round(T[ii][0], 3))} {'(C)' if T[ii] < 0 else '(T)'}")
 
 	print("\nReaction Forces in Newtons:")
 	print(f"Sx1: {round(T[num_members][0], 2)}")
