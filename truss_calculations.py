@@ -128,7 +128,7 @@ if __name__ == '__main__':
 	print(f"Sy1: {round(T[num_members+1][0], 2)}")
 	print(f"Sy2: {round(T[num_members+2][0], 2)}")
 
-	print(f"\nCost of Truss: ${cost}")
+	print(f"\nCost of Truss: ${round(cost, 2)}")
 	print(f"Theoretical max load/cost ratio in N/$: {round((load/fail_ratio)/cost, 4)}")
 	
 	print(f"\nFailing member: m{fail_index+1}")
