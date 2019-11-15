@@ -34,9 +34,9 @@ if __name__ == '__main__':
 		print(f"Succesfully loaded from the input file \"{filename}\"\n")
 	except:
 		print(
-						f"Failed to load from the input file \"{filename}\" so using test files instead\n")
+			f"Failed to load from the input file \"{filename}\" so using test files instead\n")
 		C = np.array([[1, 1, 0, 0, 0, 0, 0], [1, 0, 1, 0, 1, 1, 0], [
-															0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 1, 1, 0, 1], [0, 0, 0, 0, 0, 1, 1]])
+			0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 1, 1, 0, 1], [0, 0, 0, 0, 0, 1, 1]])
 		Sx = np.array([[1, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
 		Sy = np.array([[0, 1, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 1]])
 		X = np.array([1, 5, 4, 1, 2])
