@@ -129,7 +129,7 @@ if __name__ == '__main__':
 	print(f"Sy2: {round(T[num_members+2][0], 2)}")
 
 	print(f"\nCost of Truss: ${cost}")
-	print(f"Theoretical max load/cost ratio in N/$: {round(load/cost, 4)}")
+	print(f"Theoretical max load/cost ratio in N/$: {round((load/fail_ratio)/cost, 4)}")
 	
 	print(f"\nFailing member: m{fail_index+1}")
 	print(f"Maximum Theoretical Load: {round(load/fail_ratio, 3)} N")
