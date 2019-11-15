@@ -50,11 +50,7 @@ num_joints = len(C)
 assert(len(X) == len(Y) == num_joints)  # Should be same number of x and y coords as joints
 #####################################################
 
-# load is equal to the first load in L that is non-zero
-for val in L:
-	if val[0]: # always going to have a length of 1
-		load = val[0]
-		break
+load = sum(val[0] for val in L) # load is equal to the sum of all of the L forces
 
 # cost is defined as cost = $10J + $1L, where J is the number of joints and L is the total
 # of all the straw lengths summed together in cm
