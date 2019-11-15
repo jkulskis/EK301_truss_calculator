@@ -62,10 +62,6 @@ if __name__ == '__main__':
 
 	load = sum(val[0] for val in L) # load is equal to the sum of all of the L forces
 
-	# cost is defined as cost = $10J + $1L, where J is the number of joints and L is the total
-	# of all the straw lengths summed together in cm
-	cost = 10*num_joints + sum([val[0] for val in L])
-
 	A = []  # start off with a python list before converting to a numpy array
 	# empty 2D list to store x forces
 	X_forces = [[0]*num_members for ii in range(num_joints)]
@@ -106,6 +102,10 @@ if __name__ == '__main__':
 			fail_ratio = ratio
 			fail_index = ii
 
+	# cost is defined as cost = $10J + $1L, where J is the number of joints and L is the total
+	# of all the straw lengths summed together in cm
+	cost = 10*num_joints + sum(member_lengths)
+
 	########### DEBUG PRINTS ###########
 	# print_array(X_forces) 
 	# print_array(Y_forces)
@@ -131,5 +131,5 @@ if __name__ == '__main__':
 	print(f"\nCost of Truss: ${cost}")
 	print(f"Theoretical max load/cost ratio in N/$: {round(load/cost, 4)}")
 	
-	print(f"\nFailing member: m{fail_index}")
+	print(f"\nFailing member: m{fail_index+1}")
 	print(f"Maximum Theoretical Load: {round(load/fail_ratio, 3)} N")
