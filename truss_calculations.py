@@ -2,7 +2,7 @@ from mat4py import loadmat
 import numpy as np
 import datetime
 
-filename = "example_input.mat"
+filename = "TrussDesign1_GarrettJohnMark_A3.mat"
 
 def buckle_force(length):
 	"""Calculates the buckle force for a straw depending on the length
@@ -94,13 +94,14 @@ if __name__ == '__main__':
 	A = np.array(A) # By this point A should be filled correctly
 
 	T = np.matmul(np.linalg.inv(A), L)
-
+	
 	fail_ratio = -1
 	for ii in range(num_members):
-		ratio = abs(T[ii][0])/buckle_force(member_lengths[ii])
-		if ratio > fail_ratio:
-			fail_ratio = ratio
-			fail_index = ii
+		if T[ii][0] < 0:
+			ratio = abs(T[ii][0])/buckle_force(member_lengths[ii])
+			if ratio > fail_ratio:
+				fail_ratio = ratio
+				fail_index = ii
 
 	# cost is defined as cost = $10J + $1L, where J is the number of joints and L is the total
 	# of all the straw lengths summed together in cm
