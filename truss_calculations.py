@@ -2,7 +2,7 @@ from mat4py import loadmat
 import numpy as np
 import datetime
 
-filename = "TrussDesign1_GarrettJohnMark_A3.mat"
+filename = "truss1.mat"
 
 def buckle_force(length):
 	"""Calculates the buckle force for a straw depending on the length
@@ -25,11 +25,18 @@ if __name__ == '__main__':
 	member_lengths = []
 	try:
 		in_vals = loadmat(filename)
+		#print("Loaded")
+		#print(in_vals)
 		C = np.array(in_vals['C'])
+		#print("Loaded C")
 		Sx = np.array(in_vals['Sx'])
+		#print("Loaded Sx")
 		Sy = np.array(in_vals['Sy'])
+		#print("Loaded Sy")
 		X = np.array(in_vals['X'])
+		#print("Loaded Y")
 		Y = np.array(in_vals['Y'])
+		#print("Loaded L")
 		L = np.array(in_vals['L'])
 		print(f"Succesfully loaded from the input file \"{filename}\"\n")
 	except:
@@ -97,7 +104,7 @@ if __name__ == '__main__':
 	
 	fail_ratio = -1
 	for ii in range(num_members):
-		if T[ii][0] < 0:
+		if T[ii][0] > 0:
 			ratio = abs(T[ii][0])/buckle_force(member_lengths[ii])
 			if ratio > fail_ratio:
 				fail_ratio = ratio
@@ -122,7 +129,7 @@ if __name__ == '__main__':
 
 	print("\nMember Forces in Newtons:")
 	for ii in range(num_members):
-		print(f"m{ii+1}: {abs(round(T[ii][0], 3))} {'(C)' if T[ii] < 0 else '(T)'}")
+		print(f"m{ii+1}: {abs(round(T[ii][0], 3))} {'(C)' if T[ii] > 0 else '(T)'}")
 
 	print("\nReaction Forces in Newtons:")
 	print(f"Sx1: {round(T[num_members][0], 2)}")
